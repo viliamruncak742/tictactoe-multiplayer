@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Piškvorky · Multiplayer Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <main class="cabinet">
+    <header class="cabinet__header">
+      <h1 class="title">PIŠKVORKY</h1>
+      <p class="subtitle">multiplayer arcade · X vs O</p>
+    </header>
+
+    <p id="status" class="status">Pripájam sa...</p>
+
+    <div id="board" class="board" aria-label="Hracia plocha">
+      <button class="cell" data-index="0"></button>
+      <button class="cell" data-index="1"></button>
+      <button class="cell" data-index="2"></button>
+      <button class="cell" data-index="3"></button>
+      <button class="cell" data-index="4"></button>
+      <button class="cell" data-index="5"></button>
+      <button class="cell" data-index="6"></button>
+      <button class="cell" data-index="7"></button>
+      <button class="cell" data-index="8"></button>
+      <div id="win-line" class="win-line" hidden></div>
+    </div>
+
+    <div class="controls">
+      <button id="restart-btn" class="btn" hidden>Nová hra</button>
+    </div>
+
+    <footer class="cabinet__footer">
+      <span id="you-badge" class="badge" hidden>Ty hráš: <strong id="you-symbol"></strong></span>
+    </footer>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
